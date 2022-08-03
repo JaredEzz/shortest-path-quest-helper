@@ -200,6 +200,8 @@ public class ShortestPathPlugin extends Plugin {
             return;
         }
 
+
+
         WorldPoint currentLocation = localPlayer.getWorldLocation();
         if (currentLocation.distanceTo(pathfinder.getTarget()) < config.reachedDistance()) {
             setTarget(null);

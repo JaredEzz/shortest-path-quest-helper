@@ -24,6 +24,7 @@ public class PathfinderConfig {
     private final ShortestPathConfig config;
 
     private boolean avoidWilderness;
+    private boolean followQuestHelper;
     private boolean useAgilityShortcuts;
     private boolean useGrappleShortcuts;
     private int agilityLevel;
@@ -40,6 +41,7 @@ public class PathfinderConfig {
 
     public void refresh() {
         avoidWilderness = config.avoidWilderness();
+        followQuestHelper = config.followQuestHelper();
         useAgilityShortcuts = config.useAgilityShortcuts();
         useGrappleShortcuts = config.useGrappleShortcuts();
         agilityLevel = client.getBoostedSkillLevel(Skill.AGILITY);
@@ -53,6 +55,10 @@ public class PathfinderConfig {
 
     public boolean avoidWilderness(WorldPoint position, WorldPoint neighbor, WorldPoint target) {
         return avoidWilderness && !isInWilderness(position) && isInWilderness(neighbor) && !isInWilderness(target);
+    }
+
+    public boolean followQuestHelper(){
+        return followQuestHelper;
     }
 
     public boolean useTransport(Transport transport) {
